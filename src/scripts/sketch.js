@@ -1,7 +1,7 @@
 const CONTAINER = document.getElementById('container');
 //16x16 grid
-const GRID_X_SIZE = 100; 
-const GRID_Y_SIZE = 100;
+const GRID_X_SIZE = 16; 
+const GRID_Y_SIZE = 16;
 CONTAINER.style.gridTemplateColumns = `repeat(${GRID_X_SIZE}, auto)`;
 let createGrid = () => {
     for(let i = 0; i < (GRID_X_SIZE * GRID_Y_SIZE); i++) {
