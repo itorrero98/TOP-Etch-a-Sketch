@@ -1,0 +1,20 @@
+main {
+    max-width: 100%;
+    border: 3px solid black;
+}
+
+#container {
+    display: grid;
+}
+
+.cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+}
+
+.hovered {
+    cursor: pointer;
+    background-color: pink;
+}
