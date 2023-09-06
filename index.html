@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/405ff8cf0c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="src/styles/style.css">
     
 </head>
@@ -16,22 +17,28 @@
         </header>
         <main>
             <div id="controls">
-                <div class="input-color-container">
-                    <input id="input-color" value="#000000" class="input-color" type="color">
-                </div>
+                <input id="input-color" value="#000000" type="color">
                 <select name="color-mode" id="color-mode">
                     <option value="color-pick">Color Mode</option>
                     <option value="rainbow">Rainbow Mode</option>
                     <option value="erase">Eraser</option>
                 </select>
                 <button id="clear-btn">Clear</button>
-                <h3 id="grid-size-text">16x16</h3>
-                <input id="grid-size" min="1" max="70" value="16" type="range" class="slider">
+                <div id="grid-slider">
+                    <h3 id="grid-size-text">16x16</h3>
+                    <input id="grid-size" min="1" max="70" value="16" type="range" class="slider">
+                </div>
             </div>
             <div id="sketch-area">
                 <div id="grid-container"></div>
             </div>
         </main>
+        <footer>
+            <h3>Copyright &copy; 2023 itorr</h3>
+            <a href="https://github.com/itorrero98" target="_blank">
+                <i class="fab fa-github" aria-hidden="true"></i>
+            </a>
+        </footer>
     </body>
     <script src="/src/scripts/sketch.js"></script>
 </html>

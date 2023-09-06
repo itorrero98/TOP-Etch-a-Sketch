@@ -11,6 +11,9 @@ let gridY = GRID_SIZE_VAL.value;
 GRID_CONTAINER.style.gridTemplateColumns = `repeat(${gridX}, 1fr)`;
 GRID_CONTAINER.style.gridTemplateRows = `repeat(${gridY}, 1fr)`;
 
+window.onload = (event) => {
+    createGrid();
+};
 CLEAR_BTN.addEventListener('click', () => {
     generateNewGrid();
 });
@@ -24,13 +27,19 @@ GRID_SIZE_VAL.addEventListener('change', (e) => {
     generateNewGrid();
 });
 
+//Used to update the grid size text so user knows size before letting go of slider
+GRID_SIZE_VAL.addEventListener('mousemove', (e) => {
+    if(e.target.value === gridX) return;
+    let val = e.target.value;
+    GRID_SIZE_TEXT.innerText = `${val} x ${val}`
+});
+
 let generateNewGrid = () => {
     GRID_CONTAINER.replaceChildren();
     createGrid();
 }
 
 let createGrid = () => {
-    console.log("Creating new grid: ", gridX, gridY)
     //Create grid of divs based on grid variable size
     for(let i = 0; i < (gridX * gridY); i++) {
         let cell = document.createElement('div');
@@ -76,7 +85,3 @@ let setElementColor = (element) => {
 let generateColor = () => {
     return Math.floor(Math.random()*16777215).toString(16); 
 }
-
-createGrid();
-
-

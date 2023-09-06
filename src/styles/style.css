@@ -1,9 +1,13 @@
+/*  ELEMENTS */
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-
+html{
+    height: 100%;
+}
 body {
     background-color: rgba(69, 123, 157, 0.1);
     color: #1d3557;
@@ -26,7 +30,23 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 8rem;
+    gap: 4rem;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    height: 4rem;
+}
+
+select, input, button:hover{
+    cursor: pointer;
 }
 
 select {
@@ -59,6 +79,7 @@ select {
     background-repeat: no-repeat;
 }
 
+
 button {
     height: 3rem;
     width: 10rem;
@@ -71,11 +92,53 @@ button {
     background-color: rgba(230, 57, 70, 0.9);
 }
 
+select,
+button,
+input[type='color'] {
+  transition: transform 0.1s ease-in-out;
+}
+
+select:hover,
+button:hover,
+input[type='color']:hover {
+  transform: scale(1.05);
+}
+
+input[type='color']:active {
+  transition: transform 0.05s ease-in-out;
+  transform: scale(1);
+}
+
+input[type='color'] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 5rem;
+    height: 5rem;
+    border: none;
+  }
+  
+  input[type='color']::-webkit-color-swatch-wrapper {
+    padding: 0;
+  }
+  
+  input[type='color']::-webkit-color-swatch {
+    border: none;
+    border-radius: 50px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+
+/* IDs */
+
 #grid-container {
     display: grid;
     background-color: white;
     height: 500px;
     width: 500px;
+    -moz-transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
 }
 
 #sketch-area {
@@ -83,6 +146,11 @@ button {
     height: 500px;
     width: 500px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    -moz-transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
 }
 
 #controls {
@@ -93,6 +161,16 @@ button {
     height: 100%;
     gap: 24px;
 }
+
+#grid-slider {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+}
+
+/*  CLASSES */
 
 .cell {
     display: flex;
@@ -113,8 +191,8 @@ button {
     position: absolute;
     right: -8px;
     top: -8px;
-    width: 10rem;
-    height: 10rem;
+    width: 5.75rem;
+    height: 5.75rem;
     border: none;
 }
 
@@ -128,13 +206,13 @@ button {
     opacity: 0.9;
     -webkit-transition: .2s;
     transition: opacity .2s;
-  }
-  
-  .slider:hover {
+}
+
+.slider:hover {
     opacity: 1;
-  }
-  
-  .slider::-webkit-slider-thumb {
+}
+
+.slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
     width: 25px;
@@ -142,12 +220,58 @@ button {
     border-radius: 50%;
     background: rgba(230, 57, 70);
     cursor: pointer;
-  }
-  
-  .slider::-moz-range-thumb {
+}
+
+.slider::-moz-range-thumb {
     width: 25px;
     height: 25px;
     background: rgb(230, 57, 70);
     cursor: pointer;
-  }
+}
 
+.fa-github {
+    color: #1d3557;
+    font-size: 32px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.fa-github:hover {
+    transform: scale(1.2);
+}
+
+
+/*  MEDIA QUERIES */
+
+@media (max-width: 850px) {
+    main {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .slider {
+        width: 8rem;
+    }
+    select {
+        width: 9rem;
+    } 
+    button {
+        width: 5rem;
+    }
+    input[type='color'] {
+        width: 3rem;
+        height: 3rem;
+    }
+    #controls {
+        flex-direction: row;
+        width: 500px;
+    }
+}
+
+@media (max-width: 600px) {
+    #sketch-area, #grid-container {
+        height: 300px;
+        width: 300px;
+    }
+    #controls {
+        flex-direction: column;
+    }
+}
