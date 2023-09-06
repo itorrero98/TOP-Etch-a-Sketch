@@ -112,8 +112,8 @@ input[type='color']:active {
 input[type='color'] {
     appearance: none;
     -webkit-appearance: none;
-    width: 5rem;
-    height: 5rem;
+    width: 4rem;
+    height: 4rem;
     border: none;
   }
   
@@ -132,8 +132,8 @@ input[type='color'] {
 #grid-container {
     display: grid;
     background-color: white;
-    height: 500px;
-    width: 500px;
+    height: 750px;
+    width: 750px;
     -moz-transition: all 1s ease-in-out;
     -webkit-transition: all 1s ease-in-out;
     -moz-transition: all 1s ease-in-out;
@@ -143,23 +143,14 @@ input[type='color'] {
 
 #sketch-area {
     background-color: white;
-    height: 500px;
-    width: 500px;
+    height: 750px;
+    width: 750px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     -moz-transition: all 1s ease-in-out;
     -webkit-transition: all 1s ease-in-out;
     -moz-transition: all 1s ease-in-out;
     -o-transition: all 1s ease-in-out;
     transition: all 1s ease-in-out;
-}
-
-#controls {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100%;
-    gap: 24px;
 }
 
 #grid-slider {
@@ -176,6 +167,14 @@ input[type='color'] {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.control-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    gap: 24px;
 }
 
 .input-color-container {
@@ -198,6 +197,7 @@ input[type='color'] {
 
 .slider {
     -webkit-appearance: none;
+    appearance: none;
     width: 100%;
     height: 14px;
     border-radius: 8px;
@@ -242,7 +242,14 @@ input[type='color'] {
 
 /*  MEDIA QUERIES */
 
-@media (max-width: 850px) {
+@media (max-width: 1300px) {
+    #sketch-area, #grid-container {
+        height: 500px;
+        width: 500px;
+    }
+}
+
+@media (max-width: 1010px) {
     main {
         flex-direction: column;
         gap: 2rem;
@@ -260,8 +267,10 @@ input[type='color'] {
         width: 3rem;
         height: 3rem;
     }
-    #controls {
+    .control-container {
         flex-direction: row;
+        justify-content: center;
+        align-items: center;
         width: 500px;
     }
 }
@@ -271,7 +280,7 @@ input[type='color'] {
         height: 300px;
         width: 300px;
     }
-    #controls {
+    .control-container {
         flex-direction: column;
     }
 }
